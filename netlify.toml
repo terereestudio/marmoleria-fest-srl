@@ -1,0 +1,5 @@
+# Sitio estático: Netlify publica la carpeta "site" tal cual (sin paso de build).
+# Las cabeceras de seguridad y redirecciones están en site/_headers y site/_redirects.
+[build]
+  publish = "site"
+  command = ""

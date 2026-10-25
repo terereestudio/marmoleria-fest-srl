@@ -1,0 +1,3 @@
+# Netlify ya fuerza HTTPS. Unificar www -> dominio sin www (activar al tener el dominio):
+# https://www.[COMPLETAR-dominio]/*  https://[COMPLETAR-dominio]/:splat  301!
+/privacidad   /privacidad.html   200

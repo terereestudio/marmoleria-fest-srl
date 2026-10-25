@@ -1,0 +1,4 @@
+Contact: mailto:[COMPLETAR: email de seguridad de Tereré Estudio]
+Expires: 2027-10-25T23:59:00.000Z
+Preferred-Languages: es, en
+Canonical: https://[COMPLETAR-dominio]/.well-known/security.txt
