@@ -161,23 +161,9 @@ ul, ol { margin: 0; padding: 0; }
 .hero-facts svg { width: 18px; height: 18px; flex: none; margin-top: 2px; color: var(--color-primary); }
 .hero-facts strong { color: var(--color-ink); font-weight: 600; }
 
-/* Tablero de muestras: el recuadro de doble línea del logo */
-.board { position: relative; padding: var(--sp-3); border: 3px solid var(--color-primary-dark); background: var(--color-surface); }
-.board::before { content: ""; position: absolute; inset: 6px; border: 1px solid var(--color-line); pointer-events: none; }
-.board-grid { position: relative; list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-2); }
-.board-grid li { position: relative; }
-.board-grid img { width: 100%; aspect-ratio: 1; object-fit: cover; }
-.board-grid span {
-  position: absolute; left: 0; bottom: 0; max-width: 100%;
-  background: var(--color-surface); color: var(--color-ink);
-  font-size: 10px; line-height: 1.2; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; padding: 4px 6px;
-}
-.board-caption { position: relative; margin-top: var(--sp-3); display: flex; justify-content: space-between; gap: var(--sp-3); font-size: var(--fs-xs); color: var(--color-muted); letter-spacing: .08em; text-transform: uppercase; }
-
 @media (min-width: 900px) {
   .hero { padding-block: var(--sp-8) var(--sp-9); }
-  .hero-grid { grid-template-columns: 1.1fr 1fr; gap: var(--sp-8); }
-  .board-grid span { font-size: 11px; }
+  .hero-copy { max-width: 820px; }
 }
 
 /* ---------- Necesidad ---------- */
@@ -303,18 +289,6 @@ ul, ol { margin: 0; padding: 0; }
   .steps { grid-template-columns: repeat(4, 1fr); gap: var(--sp-5); }
   .step { grid-template-columns: 1fr; }
 }
-
-/* ---------- FAQ ---------- */
-.faq { display: grid; gap: var(--sp-2); max-width: 860px; }
-.faq details { background: var(--color-surface); border: 1px solid var(--color-line); }
-.faq summary {
-  list-style: none; cursor: pointer; display: flex; justify-content: space-between; gap: var(--sp-4); align-items: center;
-  padding: var(--sp-4) var(--sp-5); font-family: var(--font-display); font-weight: 500; color: var(--color-primary-dark);
-}
-.faq summary::-webkit-details-marker { display: none; }
-.faq summary::after { content: "+"; flex: none; font-size: 1.5rem; line-height: 1; color: var(--color-primary); transition: transform .2s; }
-.faq details[open] summary::after { transform: rotate(45deg); }
-.faq details > div { padding: 0 var(--sp-5) var(--sp-5); color: var(--color-muted); display: grid; gap: var(--sp-3); }
 
 /* ---------- CTA final ---------- */
 .cta-band { background: var(--color-primary); color: var(--color-on-dark); }

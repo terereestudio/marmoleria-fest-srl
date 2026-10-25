@@ -60,7 +60,7 @@ Después de publicar, verificar en securityheaders.com, SSL Labs y Mozilla Obser
 
 - Dominio definitivo (canonical, Open Graph, datos estructurados, sitemap, robots, security.txt, `_redirects`).
 - CUIT y email de contacto para la Política de Privacidad, y revisión legal.
-- Si Festa hace medición en obra, entrega y colocación (proceso y preguntas frecuentes).
+- Si Festa hace medición en obra, entrega y colocación (sección de proceso).
 - Año de inicio o breve historia de la empresa.
 - Horario de sábados y domingos.
 - Vigencia del catálogo de piedras.
