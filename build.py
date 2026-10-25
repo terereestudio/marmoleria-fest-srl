@@ -54,7 +54,8 @@ def catalogo_html():
         for gname, nota, items in grupos:
             meta_base = tipo or gname.replace("Línea ", "")
             small = f' <small>{e(nota)}</small>' if nota else ""
-            body.append(f'      <div class="cat-group">\n        <h3>{e(gname)}{small}</h3>\n        <ul class="swatches">')
+            titulo = f"{label} {gname.lower()}" if tipo else gname
+            body.append(f'      <div class="cat-group">\n        <h3>{e(titulo)}{small}</h3>\n        <ul class="swatches">')
             for slug, nombre in items:
                 if tipo:  # granitos / mármoles
                     material = f"{tipo} {nombre}"
@@ -66,7 +67,7 @@ def catalogo_html():
                 body.append(
                     f'          <li><button class="swatch" type="button" data-material="{e(material)}" '
                     f'aria-label="Consultar por {e(material)}">'
-                    f'<img src="img/materiales/{slug}.webp" width="240" height="240" alt="" loading="lazy">'
+                    f'<img src="img/materiales/{slug}.webp" width="240" height="240" alt="{e(material)}, muestra pulida" loading="lazy">'
                     f'<span class="swatch-name">{e(nombre)}</span><span class="swatch-meta">{e(meta)}</span>'
                     f'<span class="swatch-cta" aria-hidden="true">Consultar</span></button></li>')
             body.append("        </ul>\n      </div>")

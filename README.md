@@ -59,11 +59,17 @@ Después de publicar, verificar en securityheaders.com, SSL Labs y Mozilla Obser
 ## Pendientes [COMPLETAR]
 
 - Dominio definitivo (canonical, Open Graph, datos estructurados, sitemap, robots, security.txt, `_redirects`).
-- CUIT y email de contacto para la Política de Privacidad, y revisión legal.
+- CUIT (registro público: 30-71012296-9, a confirmar) y email de contacto para la Política de Privacidad y el pie, y revisión legal.
 - Si Festa hace medición en obra, entrega y colocación (sección de proceso).
-- Año de inicio o breve historia de la empresa.
-- Horario de sábados y domingos.
+- Año de inicio (el registro público indica constitución en 2006; confirmar antes de publicarlo).
+- Horario de sábados y domingos (hoy no se muestra).
 - Vigencia del catálogo de piedras.
 - Isotipo oficial para el favicon (hoy es provisorio).
 - Email de seguridad de Tereré Estudio en `security.txt`.
 - Nombres de material de cada foto de "Nuestros trabajos" (opcional).
+
+## SEO
+
+La auditoría completa está en el documento "Auditoría SEO · Marmolería Festa". Ya aplicado en el código: title, meta description, H1 y H2 con "marmolería" y "Corrientes"; encabezados del catálogo sin duplicados; texto alternativo en las 44 muestras; foto real en el hero; imagen para compartir con foto de trabajo; datos estructurados ampliados (contactPoint, hasOfferCatalog, hasMap, imágenes); `lastmod` en el sitemap; sin marcadores [COMPLETAR] visibles en la página principal.
+
+Pendiente fuera del código: Google Business Profile, reseñas, Search Console, dominio, coordenadas (`geo`) del local, páginas por servicio y material, y analítica sin cookies.
