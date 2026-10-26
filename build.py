@@ -59,7 +59,7 @@ def catalogo_html():
             for slug, nombre in items:
                 if tipo:  # granitos / mármoles
                     material = f"{tipo} {nombre}"
-                    meta = f"{tipo} · {gname[:-1] if gname.endswith('s') else gname}"
+                    meta = f"{tipo} · {({'Nacionales': 'Nacional', 'Importados': 'Importado'}).get(gname, gname)}"
                 else:
                     linea = gname.replace("Línea ", "")
                     material = f"{linea} {nombre}"
@@ -142,7 +142,7 @@ def main():
     cat, total = catalogo_html()
     assert total == 44, total
     page = src.replace("<!--CATALOGO-->", cat).replace("<!--TRABAJOS-->", trabajos_html())
-    page = page.replace('<span data-carousel-total>12</span>', f'<span data-carousel-total>{len(TRABAJOS)}</span>')
+
     (ROOT / "index.html").write_text(page, encoding="utf-8")
     (ROOT / "img" / "mapa-festa.svg").write_text(mapa_svg(), encoding="utf-8")
     # Favicon provisorio: cuadrado azul de marca con marco doble (no recorta ni redibuja el logo).

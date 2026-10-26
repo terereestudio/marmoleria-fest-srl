@@ -15,6 +15,46 @@
   function $(sel, ctx) { return (ctx || document).querySelector(sel); }
   function $all(sel, ctx) { return Array.prototype.slice.call((ctx || document).querySelectorAll(sel)); }
   var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  document.documentElement.classList.add("js");
+
+  /* ---------- Aparición suave de secciones al bajar ---------- */
+  var reveals = $all("[data-reveal]");
+  if (reveals.length) {
+    if (reduceMotion || !("IntersectionObserver" in window)) {
+      reveals.forEach(function (el) { el.classList.add("is-visible"); });
+    } else {
+      var revealObs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) { en.target.classList.add("is-visible"); revealObs.unobserve(en.target); }
+        });
+      }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+      reveals.forEach(function (el) { revealObs.observe(el); });
+    }
+  }
+
+  /* ---------- Fotos del hero con fundido cruzado ---------- */
+  var heroMedia = $("[data-hero-slides]");
+  if (heroMedia) {
+    var heroSlides = $all(".hero-slide", heroMedia);
+    var heroCaption = $("[data-hero-caption]", heroMedia);
+    var heroIndex = 0, heroPaused = false;
+    if (heroSlides.length > 1 && !reduceMotion) {
+      heroMedia.addEventListener("mouseenter", function () { heroPaused = true; });
+      heroMedia.addEventListener("mouseleave", function () { heroPaused = false; });
+      window.setInterval(function () {
+        if (heroPaused || document.hidden) return;
+        var next = (heroIndex + 1) % heroSlides.length;
+        var img = heroSlides[next];
+        if (!img.complete) { img.loading = "eager"; return; } // espera a que la foto esté cargada
+        heroSlides[heroIndex].classList.remove("is-active");
+        img.classList.add("is-active");
+        heroIndex = next;
+        if (heroCaption) heroCaption.textContent = img.getAttribute("data-caption") || "";
+      }, 5000);
+      // Precarga las demás fotos cuando la página ya terminó de cargar
+      window.addEventListener("load", function () { heroSlides.forEach(function (im) { im.loading = "eager"; }); });
+    }
+  }
 
   /* ---------- Año del footer ---------- */
   var year = $("[data-year]");
@@ -154,36 +194,63 @@
     });
   });
 
-  /* ---------- Carrusel de trabajos ---------- */
+  /* ---------- Carrusel de trabajos: desplazamiento continuo e infinito ----------
+     Se duplican las fotos (copias ocultas para lectores de pantalla) y, al llegar al final
+     del primer juego, se vuelve atrás sin que se note. Se pausa con el mouse, el dedo o el foco. */
   $all("[data-carousel]").forEach(function (root) {
     var track = $(".carousel-track", root);
-    var slides = $all(".slide", track);
+    if (!track) return;
+    var originals = $all(".slide", track);
+    if (!originals.length) return;
     var prev = $("[data-carousel-prev]", root);
     var next = $("[data-carousel-next]", root);
-    var current = $("[data-carousel-current]", root);
-    var total = $("[data-carousel-total]", root);
-    if (!track || !slides.length) return;
-    if (total) total.textContent = String(slides.length);
 
-    function index() {
-      var left = track.scrollLeft;
-      var best = 0, dist = Infinity;
-      slides.forEach(function (s, i) {
-        var d = Math.abs(s.offsetLeft - track.offsetLeft - left);
-        if (d < dist) { dist = d; best = i; }
-      });
-      return best;
+    originals.forEach(function (li) {
+      var copy = li.cloneNode(true);
+      copy.setAttribute("aria-hidden", "true");
+      $all("img", copy).forEach(function (im) { im.alt = ""; im.loading = "lazy"; im.removeAttribute("fetchpriority"); });
+      track.appendChild(copy);
+    });
+
+    var SPEED = 0.35; // px por cuadro: lento y continuo
+    var paused = false, holdUntil = 0, pos = track.scrollLeft;
+    function setWidth() { return originals[originals.length - 1].offsetLeft + originals[originals.length - 1].offsetWidth - originals[0].offsetLeft + parseFloat(getComputedStyle(track).columnGap || 0); }
+    var loopW = setWidth();
+    window.addEventListener("resize", function () { loopW = setWidth(); });
+
+    function wrap() {
+      if (track.scrollLeft >= loopW) { track.scrollLeft -= loopW; pos = track.scrollLeft; }
     }
-    function update() {
-      var maxScroll = track.scrollWidth - track.clientWidth - 2;
-      var i = track.scrollLeft >= maxScroll ? slides.length - 1 : index();
-      if (current) current.textContent = String(i + 1);
-      if (prev) prev.disabled = track.scrollLeft <= 2;
-      if (next) next.disabled = track.scrollLeft >= maxScroll;
+    function step() {
+      if (!paused && Date.now() > holdUntil && !document.hidden) {
+        pos += SPEED;
+        track.scrollLeft = pos;
+        if (Math.abs(track.scrollLeft - pos) > 2) pos = track.scrollLeft;
+        wrap();
+      }
+      window.requestAnimationFrame(step);
+    }
+    if (!reduceMotion) window.requestAnimationFrame(step);
+
+    var pause = function () { paused = true; };
+    var resume = function () { paused = false; pos = track.scrollLeft; };
+    root.addEventListener("mouseenter", pause);
+    root.addEventListener("mouseleave", resume);
+    track.addEventListener("touchstart", pause, { passive: true });
+    track.addEventListener("touchend", function () { holdUntil = Date.now() + 2500; resume(); }, { passive: true });
+    track.addEventListener("focusin", pause);
+    track.addEventListener("focusout", resume);
+    track.addEventListener("scroll", function () { if (paused) { wrap(); } }, { passive: true });
+
+    function slideStep() {
+      var first = originals[0], second = originals[1] || originals[0];
+      return second.offsetLeft - first.offsetLeft || first.offsetWidth;
     }
     function go(dir) {
-      var i = Math.max(0, Math.min(slides.length - 1, index() + dir));
-      track.scrollTo({ left: slides[i].offsetLeft - track.offsetLeft, behavior: reduceMotion ? "auto" : "smooth" });
+      if (dir < 0 && track.scrollLeft < slideStep()) { track.scrollLeft += loopW; }
+      holdUntil = Date.now() + 1200;
+      track.scrollBy({ left: dir * slideStep(), behavior: reduceMotion ? "auto" : "smooth" });
+      window.setTimeout(function () { wrap(); pos = track.scrollLeft; }, 700);
     }
     if (prev) prev.addEventListener("click", function () { go(-1); });
     if (next) next.addEventListener("click", function () { go(1); });
@@ -191,10 +258,6 @@
       if (ev.key === "ArrowRight") { ev.preventDefault(); go(1); }
       if (ev.key === "ArrowLeft") { ev.preventDefault(); go(-1); }
     });
-    var t;
-    track.addEventListener("scroll", function () { window.clearTimeout(t); t = window.setTimeout(update, 60); }, { passive: true });
-    window.addEventListener("resize", update);
-    update();
   });
 
   /* ---------- Botón flotante de WhatsApp ---------- */

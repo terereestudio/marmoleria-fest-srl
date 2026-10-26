@@ -67,6 +67,7 @@ Después de publicar, verificar en securityheaders.com, SSL Labs y Mozilla Obser
 - Isotipo oficial para el favicon (hoy es provisorio).
 - Email de seguridad de Tereré Estudio en `security.txt`.
 - Nombres de material de cada foto de "Nuestros trabajos" (opcional).
+- Las fotos del hero se eligen en `src/index.src.html` (bloque `data-hero-slides`).
 
 ## SEO
 

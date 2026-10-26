@@ -287,7 +287,7 @@
   <symbol id="i-receipt" viewBox="0 0 32 32"><path d="M7 3h18v26l-3-2-3 2-3-2-3 2-3-2-3 2z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M11 10h10M11 15h10M11 20h6" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
   <symbol id="i-kitchen" viewBox="0 0 32 32"><path d="M2 14h28v4H2zM5 18v11M27 18v11M12 14V9a3 3 0 0 1 6 0" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
   <symbol id="i-bath" viewBox="0 0 32 32"><path d="M4 13h24v3a8 8 0 0 1-8 8h-8a8 8 0 0 1-8-8zM16 13V7M13 7h6M10 24v4h12v-4" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
-  <symbol id="i-stairs" viewBox="0 0 32 32"><path d="M3 28h8v-7h7v-7h7V7h4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 28V22M11 21v-1M18 14v-1" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+  <symbol id="i-stairs" viewBox="0 0 32 32"><path d="M3 28V22h7v-6h7v-6h7V4h5v24z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="miter"/></symbol>
   <symbol id="i-wall" viewBox="0 0 32 32"><path d="M3 4h26v24H3zM3 12h26M3 20h26M12 4v8M20 12v8M12 20v8" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
   <symbol id="i-table" viewBox="0 0 32 32"><path d="M3 11h26v3H3zM7 14v14M25 14v14M7 21h18" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
   <symbol id="i-sink" viewBox="0 0 32 32"><path d="M3 15h26l-2 9a4 4 0 0 1-4 3H9a4 4 0 0 1-4-3zM16 15V6a3 3 0 0 1 6 0" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
@@ -309,7 +309,7 @@
     </button>
     <nav class="site-nav" id="menu-principal" aria-label="Principal">
       <ul>
-        <li><a href="#servicios">Trabajos que hacemos</a></li>
+        <li><a href="#servicios">Lo que hacemos</a></li>
         <li><a href="#materiales">Materiales</a></li>
         <li><a href="#trabajos">Nuestros trabajos</a></li>
         <li><a href="#proceso">Cómo trabajamos</a></li>
@@ -325,8 +325,8 @@
 <section class="hero" id="inicio" aria-labelledby="titulo-hero">
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <h1 id="titulo-hero">Granito, mármol y cuarzo a medida: mesadas, escaleras y revestimientos.</h1>
-      <p class="hero-lead">Mesadas, vanitorys y escaleras para casas y comercios de Corrientes Capital. Te ayudamos a elegir el material y te pasamos un presupuesto claro por WhatsApp.</p>
+      <h1 id="titulo-hero">Marmolería Festa en Corrientes: elegancia que perdura en el tiempo</h1>
+      <p class="hero-lead">Granitos, mármoles, cuarcitas y cuarzos a medida: mesadas, vanitorys y escaleras para casas y comercios. Te ayudamos a elegir la piedra y te pasamos un presupuesto claro por WhatsApp.</p>
       <div class="hero-actions">
         <a class="btn btn--primary" href="#presupuesto">Pedí tu presupuesto <svg aria-hidden="true"><use href="#i-arrow"></use></svg></a>
         <a class="btn btn--ghost" href="#materiales">Ver granitos, mármoles y cuarzos</a>
@@ -336,9 +336,16 @@
         <li><svg aria-hidden="true"><use href="#i-clock"></use></svg><span><strong>Lunes a viernes</strong> de 9 a 13 y de 14 a 19 h.</span></li>
       </ul>
     </div>
-    <figure class="hero-media">
-      <img src="img/trabajos/isla-cascada-440.webp" srcset="img/trabajos/isla-cascada-440.webp 440w, img/trabajos/isla-cascada-880.webp 880w" sizes="(min-width: 900px) 520px, calc(100vw - 32px)" width="440" height="440" alt="Isla de cocina en piedra con caídas laterales, hecha por Marmolería Festa" fetchpriority="high" decoding="async">
-      <figcaption>Isla de cocina con caídas laterales, uno de nuestros trabajos.</figcaption>
+    <!-- Fotos de trabajos que se alternan con un fundido suave (main.js). La primera es la imagen principal de la página. -->
+    <figure class="hero-media" data-hero-slides>
+      <div class="hero-frame">
+        <img class="hero-slide is-active" src="img/trabajos/isla-cascada-440.webp" srcset="img/trabajos/isla-cascada-440.webp 434w, img/trabajos/isla-cascada-880.webp 867w" sizes="(min-width: 900px) 480px, calc(100vw - 32px)" width="434" height="440" alt="Isla de cocina en piedra con caídas laterales, hecha por Marmolería Festa" data-caption="Isla de cocina con caídas laterales" fetchpriority="high" decoding="async">
+        <img class="hero-slide" src="img/trabajos/vanitory-doble-440.webp" srcset="img/trabajos/vanitory-doble-440.webp 335w, img/trabajos/vanitory-doble-880.webp 670w" sizes="(min-width: 900px) 480px, calc(100vw - 32px)" width="335" height="440" alt="Vanitory doble en piedra con bachas talladas" data-caption="Vanitory doble con bachas talladas" loading="lazy" decoding="async">
+        <img class="hero-slide" src="img/trabajos/escalera-440.webp" srcset="img/trabajos/escalera-440.webp 353w, img/trabajos/escalera-880.webp 706w" sizes="(min-width: 900px) 480px, calc(100vw - 32px)" width="353" height="440" alt="Escalera revestida en piedra con luz en cada escalón" data-caption="Escalera revestida en piedra" loading="lazy" decoding="async">
+        <img class="hero-slide" src="img/trabajos/hogar-440.webp" srcset="img/trabajos/hogar-440.webp 440w, img/trabajos/hogar-880.webp 880w" sizes="(min-width: 900px) 480px, calc(100vw - 32px)" width="440" height="440" alt="Frente de hogar revestido en piedra" data-caption="Frente de hogar revestido" loading="lazy" decoding="async">
+        <img class="hero-slide" src="img/trabajos/isla-negra-bachas-440.webp" srcset="img/trabajos/isla-negra-bachas-440.webp 437w, img/trabajos/isla-negra-bachas-880.webp 874w" sizes="(min-width: 900px) 480px, calc(100vw - 32px)" width="437" height="440" alt="Isla de cocina negra con bachas integradas" data-caption="Isla negra con bachas integradas" loading="lazy" decoding="async">
+      </div>
+      <figcaption><span data-hero-caption>Isla de cocina con caídas laterales</span>, uno de nuestros trabajos.</figcaption>
     </figure>
   </div>
 </section>
@@ -346,15 +353,15 @@
 <!-- ============================ NECESIDAD ============================ -->
 <section class="section" aria-labelledby="titulo-necesidad">
   <div class="wrap need-grid">
-    <div class="need-intro">
+    <div class="need-intro" data-reveal>
       <span class="eyebrow">Antes de elegir</span>
       <h2 id="titulo-necesidad">Una mesada se elige una vez. Tiene que salir bien.</h2>
       <p>La piedra va a estar en tu cocina o tu baño por muchos años. Por eso te explicamos las diferencias entre materiales y te presupuestamos con datos concretos.</p>
     </div>
-    <ul class="need-list">
-      <li><svg aria-hidden="true"><use href="#i-stone"></use></svg><div><strong>¿Granito, mármol o cuarzo?</strong><p>Cada material se comporta distinto frente al calor, las manchas y el uso diario. Te contamos cuál conviene para lo que necesitás.</p></div></li>
-      <li><svg aria-hidden="true"><use href="#i-ruler"></use></svg><div><strong>Medidas y terminaciones</strong><p>Bacha, anafe, zócalos, cantos: los detalles se definen antes de cortar, no después.</p></div></li>
-      <li><svg aria-hidden="true"><use href="#i-receipt"></use></svg><div><strong>Un presupuesto que se entienda</strong><p>Material y trabajo detallados, para que sepas qué estás pagando.</p></div></li>
+    <ul class="need-list" data-reveal>
+      <li><span class="need-icon"><svg aria-hidden="true"><use href="#i-stone"></use></svg></span><div><strong>¿Granito, mármol o cuarzo?</strong><p>Cada material se comporta distinto frente al calor, las manchas y el uso diario. Te contamos cuál conviene para lo que necesitás.</p></div></li>
+      <li><span class="need-icon"><svg aria-hidden="true"><use href="#i-ruler"></use></svg></span><div><strong>Medidas y terminaciones</strong><p>Bacha, anafe, zócalos, cantos: los detalles se definen antes de cortar, no después.</p></div></li>
+      <li><span class="need-icon"><svg aria-hidden="true"><use href="#i-receipt"></use></svg></span><div><strong>Un presupuesto que se entienda</strong><p>Material y trabajo detallados, para que sepas qué estás pagando.</p></div></li>
     </ul>
   </div>
 </section>
@@ -362,17 +369,18 @@
 <!-- ============================ SERVICIOS ============================ -->
 <section class="section section--white" id="servicios" aria-labelledby="titulo-servicios">
   <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">Trabajos que hacemos</span>
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">Lo que mejor sabemos hacer</span>
       <h2 id="titulo-servicios">Mesadas, vanitorys y escaleras en granito, mármol y cuarzo</h2>
-      <p>Producimos y comercializamos productos en mármol, granito y cuarzo para hogares y organizaciones.</p>
+      <p>Producimos y comercializamos piezas en mármol, granito y cuarzo para hogares y organizaciones.</p>
     </div>
-    <ul class="service-grid">
+    <!-- Patrón tipo tablero: las tarjetas --blue y --accent alternan con las claras -->
+    <ul class="service-grid" data-reveal>
       <li class="service"><svg aria-hidden="true"><use href="#i-kitchen"></use></svg><h3>Mesadas de cocina</h3><p>Superficies firmes para el uso de todos los días, con calado para bacha y anafe.</p></li>
-      <li class="service"><svg aria-hidden="true"><use href="#i-bath"></use></svg><h3>Baños y vanitorys</h3><p>Mesadas de baño y vanitorys que combinan con el resto del ambiente.</p></li>
+      <li class="service service--blue"><svg aria-hidden="true"><use href="#i-bath"></use></svg><h3>Baños y vanitorys</h3><p>Mesadas de baño y vanitorys que combinan con el resto del ambiente.</p></li>
       <li class="service"><svg aria-hidden="true"><use href="#i-table"></use></svg><h3>Mesas, mesitas y barras</h3><p>Tapas de piedra para comedor, living o una barra de cocina.</p></li>
-      <li class="service"><svg aria-hidden="true"><use href="#i-stairs"></use></svg><h3>Escaleras y umbrales</h3><p>Escalones, umbrales y solias resistentes al tránsito.</p></li>
-      <li class="service"><svg aria-hidden="true"><use href="#i-wall"></use></svg><h3>Revestimientos</h3><p>Paredes y frentes con la presencia de la piedra natural.</p></li>
+      <li class="service service--blue"><svg aria-hidden="true"><use href="#i-stairs"></use></svg><h3>Escaleras y umbrales</h3><p>Escalones, umbrales y solias resistentes al tránsito.</p></li>
+      <li class="service service--blue"><svg aria-hidden="true"><use href="#i-wall"></use></svg><h3>Revestimientos</h3><p>Paredes y frentes con la presencia de la piedra natural.</p></li>
       <li class="service"><svg aria-hidden="true"><use href="#i-wash"></use></svg><h3>Lavaderos</h3><p>Mesadas para lavadero que soportan agua y uso intenso.</p></li>
       <li class="service service--accent"><svg aria-hidden="true"><use href="#i-sink"></use></svg><h3>Piletas de acero inoxidable</h3><p>Johnson Acero y Mi Pileta: cocina simple o doble, vanitory y lavadero. Resolvés mesada y bacha en un solo lugar.</p></li>
       <li class="service"><svg aria-hidden="true"><use href="#i-ruler"></use></svg><h3>Proyectos especiales</h3><p>¿Tenés otra idea? Contanos qué necesitás y lo evaluamos.</p></li>
@@ -383,57 +391,55 @@
 <!-- ============================ MATERIALES ============================ -->
 <section class="section" id="materiales" aria-labelledby="titulo-materiales">
   <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">Catálogo de piedras</span>
-      <h2 id="titulo-materiales">Granitos, mármoles y cuarzos: más de 40 piedras en Corrientes</h2>
-      <p>Granitos nacionales e importados, mármoles importados, cuarcitas y superficies de cuarzo y ultracompactas.</p>
+    <div class="cat-head" data-reveal>
+      <div class="section-head">
+        <span class="eyebrow">Catálogo de piedras</span>
+        <h2 id="titulo-materiales">Granitos, mármoles y cuarzos: más de 40 piedras en Corrientes</h2>
+        <p>Granitos nacionales e importados, mármoles importados, cuarcitas y superficies de cuarzo y ultracompactas.</p>
+      </div>
+      <aside class="brands" aria-labelledby="titulo-marcas">
+        <h3 id="titulo-marcas">Líneas y marcas que trabajamos</h3>
+        <ul>
+          <li>Silestone</li><li>Dekton</li><li>Solidum</li><li>Marmotech</li><li>Johnson Acero</li><li>Mi Pileta</li>
+        </ul>
+      </aside>
     </div>
 <!--CATALOGO-->
-    <p class="cat-note"><strong>Las fotos son orientativas.</strong> La piedra natural tiene vetas y tonos propios: cada placa es única. Vení al local a ver las placas reales antes de decidir.</p>
-  </div>
-</section>
-
-<!-- ============================ POR QUÉ FESTA ============================ -->
-<section class="section section--white" aria-labelledby="titulo-por-que">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">Por qué Festa</span>
-      <h2 id="titulo-por-que">Trabajo serio, de principio a fin</h2>
-    </div>
-    <ul class="why-grid">
-      <li><span class="why-fig">44</span><h3>Piedras en catálogo</h3><p>Granitos, mármoles, cuarcitas y cuarzos de líneas como Silestone y Dekton.</p></li>
-      <li><span class="why-fig">1</span><h3>Local, a la vista</h3><p>Una sola dirección: Av. Libertad 5170. Venís, ves el material y hablás con quien lo trabaja.</p></li>
-      <li><span class="why-fig">2</span><h3>Contactos directos</h3><p>José Stabile y Carlos Femenia atienden tu consulta personalmente.</p></li>
-      <li><span class="why-fig">A medida</span><h3>Producción propia</h3><p>Producimos y comercializamos: cada pieza se hace para tu espacio.</p></li>
-    </ul>
+    <p class="cat-note"><strong>Las fotos son orientativas.</strong> La piedra natural tiene vetas y tonos propios: cada placa es única. Vení al local a ver las placas reales y consultar la disponibilidad de stock.</p>
   </div>
 </section>
 
 <!-- ============================ NOSOTROS ============================ -->
 <section class="section about" aria-labelledby="titulo-nosotros">
-  <div class="wrap about-grid">
-    <div class="about-text">
-      <span class="eyebrow">Quiénes somos</span>
-      <h2 id="titulo-nosotros">Marmolería Festa: corte y tallado de piedra en Corrientes</h2>
-      <p>Nos dedicamos a la producción y comercialización de mármoles, granitos y cuarzos. Buscamos resolver lo que cada persona necesita con productos personalizados, de alta calidad y durabilidad, para hogares y organizaciones.</p>
-      <p>Creemos en combinar la tradición del oficio con materiales y tecnologías actuales.</p>
-      <ul class="people">
-        <li><strong>José Stabile</strong><a href="tel:+5493794710121">3794 710121</a></li>
-        <li><strong>Carlos Femenia</strong><a href="tel:+5493794567000">3794 567000</a></li>
-      </ul>
-    </div>
-    <div>
-      <blockquote class="about-quote">
-        <p>Elegancia que perdura en el tiempo.</p>
-        <footer>Marmolería Festa</footer>
-      </blockquote>
-      <div class="brands">
-        <p>Líneas y marcas que trabajamos</p>
-        <ul>
-          <li>Silestone</li><li>Dekton</li><li>Solidum</li><li>Marmotech</li><li>Johnson Acero</li><li>Mi Pileta</li>
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-text" data-reveal>
+        <span class="eyebrow">Quiénes somos</span>
+        <h2 id="titulo-nosotros">Marmolería Festa: corte y tallado de piedra en Corrientes</h2>
+        <p>Somos una marmolería de Corrientes Capital dedicada a la producción y comercialización de mármoles, granitos y cuarzos. En nuestro taller de Av. Libertad 5170 cortamos, tallamos y terminamos cada pieza a medida, para casas, comercios y organizaciones.</p>
+        <p>Combinamos el oficio de la piedra con materiales y tecnología actuales. Elegimos la placa con vos, cuidamos cada canto y cada calado, y te explicamos qué conviene antes de cortar.</p>
+        <ul class="about-points">
+          <li><strong>Taller propio</strong><span>Producción a medida en Corrientes</span></li>
+          <li><strong>+40 piedras</strong><span>Granitos, mármoles, cuarcitas y cuarzos</span></li>
+          <li><strong>Trato directo</strong><span>José y Carlos atienden tu consulta</span></li>
         </ul>
       </div>
+      <figure class="about-media" data-reveal>
+        <img src="img/trabajos/mesada-respaldo-880.webp" width="766" height="880" alt="Mesada y respaldo de cocina hechos en la misma piedra por Marmolería Festa" loading="lazy" decoding="async">
+      </figure>
     </div>
+    <ul class="people" data-reveal>
+      <li>
+        <span class="people-name">José Stabile</span>
+        <a class="people-tel" href="tel:+5493794710121"><svg aria-hidden="true"><use href="#i-phone"></use></svg>3794 710121</a>
+        <a class="people-wa" href="https://wa.me/5493794710121?text=Hola%20Jos%C3%A9%2C%20quiero%20pedir%20un%20presupuesto." target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#i-wa"></use></svg>WhatsApp</a>
+      </li>
+      <li>
+        <span class="people-name">Carlos Femenia</span>
+        <a class="people-tel" href="tel:+5493794567000"><svg aria-hidden="true"><use href="#i-phone"></use></svg>3794 567000</a>
+        <a class="people-wa" href="https://wa.me/5493794567000?text=Hola%20Carlos%2C%20quiero%20pedir%20un%20presupuesto." target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#i-wa"></use></svg>WhatsApp</a>
+      </li>
+    </ul>
   </div>
 </section>
 
@@ -441,51 +447,69 @@
 <!-- Las fotos del carrusel se definen en build.py (lista TRABAJOS). Todas tienen la misma altura; el ancho sale de cada foto. -->
 <section class="section section--white" id="trabajos" aria-labelledby="titulo-trabajos">
   <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">Nuestros trabajos</span>
-      <h2 id="titulo-trabajos">Así quedan las piezas terminadas</h2>
-      <p>Cocinas, baños, escaleras y piezas especiales que salieron de nuestro taller.</p>
-    </div>
-    <div class="carousel" data-carousel>
-      <!--TRABAJOS-->
-      <div class="carousel-controls">
-        <p class="carousel-status" aria-live="polite"><span data-carousel-current>1</span> / <span data-carousel-total>12</span></p>
-        <div class="carousel-btns">
-          <button class="carousel-btn" type="button" data-carousel-prev aria-label="Trabajo anterior"><svg aria-hidden="true"><use href="#i-prev"></use></svg></button>
-          <button class="carousel-btn" type="button" data-carousel-next aria-label="Trabajo siguiente"><svg aria-hidden="true"><use href="#i-next"></use></svg></button>
-        </div>
+    <div class="works-head" data-reveal>
+      <div class="section-head">
+        <span class="eyebrow">Nuestros trabajos</span>
+        <h2 id="titulo-trabajos" class="quote-title">“Elegancia que perdura en el tiempo.”</h2>
+        <p>Cocinas, baños, escaleras, hogares y piezas especiales que salieron de nuestro taller.</p>
       </div>
+      <a class="btn btn--ghost btn--ig" href="https://www.instagram.com/marmoleriafesta/" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#i-ig"></use></svg>Seguinos en Instagram</a>
     </div>
-    <p class="carousel-ig">Más trabajos en Instagram: <a href="https://www.instagram.com/marmoleriafesta/" target="_blank" rel="noopener noreferrer">@marmoleriafesta</a></p>
+  </div>
+  <div class="carousel" data-carousel>
+<!--TRABAJOS-->
+    <button class="carousel-btn carousel-btn--prev" type="button" data-carousel-prev aria-label="Trabajo anterior"><svg aria-hidden="true"><use href="#i-prev"></use></svg></button>
+    <button class="carousel-btn carousel-btn--next" type="button" data-carousel-next aria-label="Trabajo siguiente"><svg aria-hidden="true"><use href="#i-next"></use></svg></button>
   </div>
 </section>
 
 <!-- ============================ PROCESO ============================ -->
 <section class="section" id="proceso" aria-labelledby="titulo-proceso">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head" data-reveal>
       <span class="eyebrow">Cómo trabajamos</span>
       <h2 id="titulo-proceso">De la idea a la pieza terminada, en cuatro pasos</h2>
     </div>
-    <ol class="steps">
-      <li class="step"><div><h3>Contanos tu idea</h3><p>Mandanos medidas aproximadas, un plano o una foto del espacio por WhatsApp.</p></div></li>
-      <li class="step"><div><h3>Elegí la piedra</h3><p>Vení al local a ver las placas y las muestras. Te explicamos qué conviene según el uso.</p></div></li>
-      <li class="step"><div><h3>Recibí el presupuesto</h3><p>Con el material y el trabajo detallados, sin sorpresas.</p></div></li>
-      <li class="step"><div><h3>Hacemos tu pieza</h3><p>Cortamos y terminamos cada pieza a medida en nuestro taller.</p></div></li>
+    <!-- Cada paso tiene una franja animada que ilustra el texto (solo CSS; se pausa con "reducir movimiento") -->
+    <ol class="steps" data-reveal>
+      <li class="step">
+        <div class="step-band band-chat" aria-hidden="true">
+          <span class="band-num">01</span>
+          <span class="chat-msg chat-msg--a"></span>
+          <span class="chat-msg chat-msg--b"></span>
+          <span class="chat-typing"><i></i><i></i><i></i></span>
+        </div>
+        <h3>Contanos tu idea</h3><p>Mandanos medidas aproximadas, un plano o una foto del espacio por WhatsApp.</p>
+      </li>
+      <li class="step">
+        <div class="step-band band-stones" aria-hidden="true">
+          <span class="band-num">02</span>
+          <img src="img/materiales/gris-mara.webp" width="240" height="240" alt="" loading="lazy">
+          <img src="img/materiales/carrara.webp" width="240" height="240" alt="" loading="lazy">
+          <img src="img/materiales/calacatta-gold.webp" width="240" height="240" alt="" loading="lazy">
+          <img src="img/materiales/negro-absoluto.webp" width="240" height="240" alt="" loading="lazy">
+          <span class="stone-pick"></span>
+        </div>
+        <h3>Elegí la piedra</h3><p>Vení al local a ver las placas y las muestras. Te explicamos qué conviene según el uso.</p>
+      </li>
+      <li class="step">
+        <div class="step-band band-quote" aria-hidden="true">
+          <span class="band-num">03</span>
+          <span class="quote-doc"><i></i><i></i><i></i></span>
+          <span class="quote-check"></span>
+        </div>
+        <h3>Recibí el presupuesto</h3><p>Con el material y el trabajo detallados, sin sorpresas.</p>
+      </li>
+      <li class="step">
+        <div class="step-band band-cut" aria-hidden="true">
+          <span class="band-num">04</span>
+          <span class="cut-slab"></span>
+          <span class="cut-line"></span>
+          <span class="cut-disc"></span>
+        </div>
+        <h3>Hacemos tu pieza</h3><p>Cortamos y terminamos cada pieza a medida en nuestro taller.</p>
+      </li>
     </ol>
-  </div>
-</section>
-
-<!-- ============================ CTA FINAL ============================ -->
-<section class="cta-band" aria-labelledby="titulo-cta">
-  <div class="wrap cta-inner">
-    <div>
-      <h2 id="titulo-cta">¿Ya tenés las medidas? Te presupuestamos.</h2>
-      <p>Contanos qué querés hacer y te respondemos por WhatsApp.</p>
-    </div>
-    <div class="cta-actions">
-      <a class="btn btn--light" href="#presupuesto">Pedí tu presupuesto <svg aria-hidden="true"><use href="#i-arrow"></use></svg></a>
-    </div>
   </div>
 </section>
 
@@ -499,19 +523,20 @@
       <div>
         <h3>Contacto</h3>
         <ul class="contact-list">
-          <li><svg aria-hidden="true"><use href="#i-pin"></use></svg><span><strong>Av. Libertad 5170</strong><br>Corrientes Capital (CP 3400). Única ubicación.</span></li>
-          <li><svg aria-hidden="true"><use href="#i-phone"></use></svg><span>José Stabile: <a href="tel:+5493794710121">3794 710121</a><br>Carlos Femenia: <a href="tel:+5493794567000">3794 567000</a></span></li>
-          <li><svg aria-hidden="true"><use href="#i-ig"></use></svg><span><a href="https://www.instagram.com/marmoleriafesta/" target="_blank" rel="noopener noreferrer">@marmoleriafesta</a></span></li>
+          <li><span class="contact-icon"><svg aria-hidden="true"><use href="#i-pin"></use></svg></span><span><strong>Av. Libertad 5170</strong><br>Corrientes Capital (CP 3400). Única ubicación.</span></li>
+          <li><span class="contact-icon"><svg aria-hidden="true"><use href="#i-phone"></use></svg></span><span>José Stabile: <a href="tel:+5493794710121">3794 710121</a><br>Carlos Femenia: <a href="tel:+5493794567000">3794 567000</a></span></li>
+          <li><span class="contact-icon"><svg aria-hidden="true"><use href="#i-ig"></use></svg></span><span><a href="https://www.instagram.com/marmoleriafesta/" target="_blank" rel="noopener noreferrer">@marmoleriafesta</a></span></li>
         </ul>
       </div>
       <div>
         <h3>Horario</h3>
-        <table class="hours">
-          <tbody>
-            <tr><th scope="row">Lunes a viernes</th><td>09:00 a 13:00</td></tr>
-            <tr><th scope="row"><span class="sr-only">Lunes a viernes, por la tarde</span></th><td>14:00 a 19:00</td></tr>
-          </tbody>
-        </table>
+        <div class="hours-card">
+          <p class="hours-days"><svg aria-hidden="true"><use href="#i-clock"></use></svg>Lunes a viernes</p>
+          <dl class="hours">
+            <div><dt>Mañana</dt><dd>09:00 a 13:00</dd></div>
+            <div><dt>Tarde</dt><dd>14:00 a 19:00</dd></div>
+          </dl>
+        </div>
       </div>
       <div class="map-card" data-map>
         <div data-map-slot><img src="img/mapa-festa.svg" width="800" height="450" alt="Ilustración de ubicación: Av. Libertad 5170, Corrientes Capital" loading="lazy"></div>
