@@ -67,7 +67,7 @@ def catalogo_html():
                 body.append(
                     f'          <li><button class="swatch" type="button" data-material="{e(material)}" '
                     f'aria-label="Consultar por {e(material)}">'
-                    f'<img src="img/materiales/{slug}.webp" width="240" height="240" alt="{e(material)}, muestra pulida" loading="lazy">'
+                    f'<img src="img/materiales/{slug}.webp" width="240" height="240" alt="{e(material)}, muestra pulida" loading="lazy" decoding="async">'
                     f'<span class="swatch-name">{e(nombre)}</span><span class="swatch-meta">{e(meta)}</span>'
                     f'<span class="swatch-cta" aria-hidden="true">Consultar</span></button></li>')
             body.append("        </ul>\n      </div>")
@@ -127,7 +127,7 @@ def trabajos_html():
         small = Image.open(ROOT / "img" / "trabajos" / f"{slug}-440.webp")
         w, h = small.size
         ratio = big.size[0] / big.size[1]
-        loading = 'fetchpriority="low" loading="lazy"' if i > 1 else 'loading="eager"'
+        loading = 'loading="lazy"'  # el carrusel está fuera de la primera pantalla
         out.append(
             f'        <li class="slide"><figure class="slide-fig"><div class="slide-media">'
             f'<img src="img/trabajos/{slug}-440.webp" srcset="img/trabajos/{slug}-440.webp {small.size[0]}w, img/trabajos/{slug}-880.webp {big.size[0]}w" '

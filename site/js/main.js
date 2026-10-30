@@ -51,8 +51,6 @@
         heroIndex = next;
         if (heroCaption) heroCaption.textContent = img.getAttribute("data-caption") || "";
       }, 5000);
-      // Precarga las demás fotos cuando la página ya terminó de cargar
-      window.addEventListener("load", function () { heroSlides.forEach(function (im) { im.loading = "eager"; }); });
     }
   }
 
@@ -315,6 +313,8 @@
         frame.src = "https://www.google.com/maps?q=" + encodeURIComponent("Av. Libertad 5170, Corrientes, Argentina") + "&output=embed";
         frame.title = "Mapa de Google: Av. Libertad 5170, Corrientes";
         frame.loading = "lazy";
+        frame.width = "800";
+        frame.height = "450";
         frame.referrerPolicy = "no-referrer-when-downgrade";
         frame.setAttribute("sandbox", "allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox");
         while (slot.firstChild) slot.removeChild(slot.firstChild);
